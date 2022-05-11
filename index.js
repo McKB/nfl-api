@@ -3,9 +3,9 @@ const bodyparser = require('body-parser')
 const { getAllTeams, getTeamByID, addTeam } = require('./controllers/team')
 const app = express()
 
-app.get('/team', getAllTeams)
+app.get('/teams', getAllTeams)
 
-app.get('/team/:id', getTeamByID)
+app.get('/teams/:id', getTeamByID)
 
 app.post('/teams', bodyparser.json(), addTeam)
 

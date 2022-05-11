@@ -15,24 +15,30 @@ const getTeamByID = (req, res) => {
   }
 }
 
+
 const addTeam = (req, res) => {
   const {
-    id, location, mascot, abbreviation, conference, division
+    location, mascot, abbreviation, conference, division
   } = req.body
 
-  if (!id || !location || !mascot || !abbreviation || !conference || !division) {
+  if (!location || !mascot || !abbreviation || !conference || !division) {
     // eslint-disable-next-line max-len
-    return res.status(400).send('the following fields are required: id, location, mascot, abbreviation, conference, division')
+    return res.status(400).send('the following fields are required: location, mascot, abbreviation, conference, division')
   }
 
   const newTeam = {
-    id, location, mascot, abbreviation, conference, division
+    id: findId(), location, mascot, abbreviation, conference, division
   }
-  
-  console.log(newTeam)
+
+  console.log(newTeam) // eslint-disable-line no-console
 
   return res.status(201).send(newTeam)
 }
 
+const findId = () => {
+  let newId = teams.length + 1
+
+  return newId
+}
 
 module.exports = { getAllTeams, getTeamByID, addTeam }
