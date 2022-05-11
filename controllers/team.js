@@ -30,7 +30,7 @@ const addTeam = (req, res) => {
     id: findId(), location, mascot, abbreviation, conference, division
   }
 
-  console.log(newTeam) // eslint-disable-line no-console
+  teams.push(newTeam)
 
   return res.status(201).send(newTeam)
 }
