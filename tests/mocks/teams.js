@@ -38,4 +38,11 @@ const teamTwo = {
   division: 'North'
 }
 
-module.exports = { teamsList, teamOne, teamTwo }
+const badTeam = {
+  location: 'Antarctica',
+  abbreviation: 'ANT',
+  conference: 'NFC',
+  division: 'South'
+}
+
+module.exports = { teamsList, teamOne, teamTwo, badTeam }
